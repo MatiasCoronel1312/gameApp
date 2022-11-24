@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 28,
         color: colors.text,
-        fontWeight: 'bold' 
+        
+        fontFamily: 'StencilB',
     }
 });
