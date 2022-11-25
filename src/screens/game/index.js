@@ -15,12 +15,7 @@ const generateRandomNumber = (min, max, excluide) => {
     }
 }
 
-const onHandleReturn = (userNumber) => {
-    console.warn('return');
-    userNumber= null;
-}
-
-const Game = ({selectNumber}) => {
+const Game = ({selectNumber, onHandleReturn}) => {
     const [currentGuess, setCurrentGuess] = useState (generateRandomNumber(1, 100, selectNumber));
     return (
         <View style={styles.container}>
@@ -43,7 +38,7 @@ const Game = ({selectNumber}) => {
             <View style={styles.return}>
                 <Button 
                         title="Return" 
-                        onPress={onHandleReturn}
+                        onPress={() => onHandleReturn(selectNumber)}
                         color={colors.primary}
                     />
             </View>

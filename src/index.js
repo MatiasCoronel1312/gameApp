@@ -18,10 +18,18 @@ export default function App() {
     setUserNumber(selectNumber);
   }
 
-  let content = <StartGame onStartGame={onStartGame}/>
-  if(userNumber) {
-    content = <Game selectNumber={userNumber}/>
-  }else{<StartGame onStartGame={onStartGame}/>}
+  const onHandleReturn = () => {
+    setUserNumber(null)    
+}
+
+  let content 
+
+  if(userNumber!==null) {
+      content = <Game selectNumber={userNumber} onHandleReturn={onHandleReturn}/>
+  } else {
+      content= <StartGame onStartGame={onStartGame}/>
+    }
+  
 
   if(!loaded){
     return  (
